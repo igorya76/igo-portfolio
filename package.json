@@ -1,0 +1,19 @@
+{
+  "name": "personal-repo",
+  "version": "0.0.0",
+  "engines": {
+    "npm": "10.x",
+    "node": "20.x.x"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@types/node": "^22.10.1",
+    "fastify": "^5.1.0",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "npm@8.1.0"
+}

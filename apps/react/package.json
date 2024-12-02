@@ -1,0 +1,36 @@
+{
+  "name": "react",
+  "version": "0.0.0",
+  "description": "React Application",
+  "type": "module",
+  "engines": {
+    "npm": "10.x",
+    "node": "20.x.x"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "languages": [
+    {
+      "id": "javascript",
+      "extensions": [
+        ".ts",
+        ".tsx"
+      ]
+    }
+  ],
+  "author": "CF Evans",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@vitejs/plugin-react": "^1.2.0",
+    "react": "^18.2.0",
+    "react-device-detect": "^2.2.2",
+    "react-dom": "^18.2.0",
+    "react-number-format": "^5.2.2",
+    "react-onesignal": "^2.0.4",
+    "react-router-dom": "^6.23.0",
+    "vite": "^5.4.11"
+  }
+}

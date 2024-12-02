@@ -1,0 +1,132 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env"],
+  "remoteCache": {
+    "enabled": true
+  },
+  "pipeline": {
+    "pkg:dev": {
+      "dependsOn": ["^pkg:dev"]
+    },
+    "pkg:build": {
+      "dependsOn": ["^pkg:build"],
+      "inputs": ["src/**"],
+      "outputs": ["build/**", "dist/**"]
+    },
+    "pkg:build:sb": {
+      "dependsOn": ["^pkg:build"],
+      "outputs": ["storybook-static/**"]
+    },
+    "db:init": {
+      "dependsOn": ["^pkg:build"],
+      "cache": false
+    },
+    "db:gen": {
+      "dependsOn": ["^pkg:build", "^db:init", "^db:gen", "^db:gen:copy"],
+      "cache": true,
+      "inputs": ["src/**"],
+      "outputs": ["build/**", "_gen/**"]
+    },
+    "db:gen:copy": {
+      "dependsOn": ["^pkg:build", "db:gen", "^types:build"],
+      "cache": false,
+      "inputs": ["src/**"]
+    },
+    "types:gen": {
+      "dependsOn": ["^pkg:build", "^db:gen:copy", "db:gen:copy"],
+      "inputs": ["src/**", "_gen/**", "scripts/**"],
+      "outputs": ["_gen_src/**"]
+    },
+    "types:gen:copy": {
+      "dependsOn": ["^types:gen", "types:gen"],
+      "cache": false,
+      "inputs": ["_gen_src/**"]
+    },
+    "types:build": {
+      "dependsOn": [
+        "^types:gen",
+        "types:gen:copy",
+        "types:gen",
+        "^types:gen:copy"
+      ],
+      "inputs": ["_gen_src/**", "src/**"],
+      "outputs": ["build/**"]
+    },
+    "types:test": {
+      "dependsOn": ["types:gen"],
+      "cache": true,
+      "inputs": ["src/**"]
+    },
+    "template:gen": {
+      "dependsOn": ["^pkg:build"],
+      "inputs": ["src/**"],
+      "outputs": ["build/**"],
+      "cache": false
+    },
+    "serverfeature:gen": {
+      "dependsOn": ["^pkg:build", "^db:gen", "^types:build", "^template:gen"],
+      "inputs": ["src/**"],
+      "outputs": ["_gen/**", "build/**"]
+    },
+    "serverfeature:types": {
+      "dependsOn": ["serverfeature:gen"],
+      "inputs": ["src/**"],
+      "outputs": ["_gen/**"]
+    },
+    "serverfeature:gen:copy": {
+      "dependsOn": ["serverfeature:gen"],
+      "cache": false,
+      "inputs": ["_gen/**"]
+    },
+    "servergroup:gen": {
+      "dependsOn": ["^serverfeature:gen:copy"],
+      "inputs": ["_gen/**", "src_"],
+      "outputs": ["build/**"],
+      "cache": false
+    },
+    "reacttypes:gen": {
+      "dependsOn": [
+        "^servergroup:gen",
+        "^types:gen:copy",
+        "^types:build",
+        "^types:gen",
+        "^reacttypes:gen"
+      ],
+      "inputs": ["src/**", "_gen/**"],
+      "outputs": ["_gen_src/**", "build/**"],
+      "cache": false
+    },
+    "reacttypes:build": {
+      "dependsOn": ["reacttypes:gen", "^reacttypes:build"],
+      "inputs": ["src/**", "_gen_src/**"],
+      "outputs": ["build/**"],
+      "cache": false
+    },
+
+    "reactfeature:init": {
+      "dependsOn": ["^reacttypes:build"],
+      "inputs": ["src/**", "src/**/config.temp**", "src/**/formLayout.temp**"],
+      "cache": false
+    },
+    "reactfeature:gen": {
+      "dependsOn": ["^reactfeature:init", "reactfeature:init"],
+      "inputs": ["src_/**", "!src/**/temp**", "!src/**/*"],
+      "outputs": ["build/**"],
+      "cache": true
+    },
+    "reactfeature:types": {
+      "dependsOn": ["reactfeature:gen", "^reactfeature:gen", "^reacttypes:gen"],
+      "inputs": ["src/**", "src_/**"],
+      "outputs": ["build/**"]
+    },
+    "app:prod-build": {
+      "dependsOn": ["reactfeature:gen", "^reactfeature:gen", "^reacttypes:gen"],
+      "inputs": ["src/**", "src_/**", "vite.config.ts"],
+      "outputs": ["build/**"]
+    },
+    "app:prod": {
+      "dependsOn": ["app:prod-build", "^app:prod-build"],
+      "cache": false
+    }
+  }
+}

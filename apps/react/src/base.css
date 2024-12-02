@@ -1,0 +1,81 @@
+/* global.css */
+
+:root {
+  --yellow: #ffd600;
+  --black: #272727;
+  --light_blue: #687aa2;
+  --dark_blue: #062b60;
+}
+
+html {
+  /* border-box box model allows us to add padding and border to our elements without increasing their size */
+  /* box-sizing: border-box; */
+  overflow: hidden;
+  /* A system font stack so things load nice and quick! */
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 900;
+  font-size: 08px;
+  color: var(--dark_blue);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07); */
+}
+
+/*
+  We inherit box-sizing: border-box; from our <html> selector
+  Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector
+*/
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+input[type="file"]::file-selector-button {
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02875em;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px 6px 16px;
+  border-radius: 4px;
+  transition: background-color, box-shadow, border-color,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+  background-color: #1976d2;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #512da8;
+}
+
+/* img {
+  max-width: 90%;
+} */
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 5px 0;
+}
