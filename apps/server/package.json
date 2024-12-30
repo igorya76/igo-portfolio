@@ -8,7 +8,8 @@
     "node": "20.x.x"
   },
   "scripts": {
-    "dev": "tsx --watch src/index.ts "
+    "dev": "tsx --watch src/index.ts ",
+    "start": "tsx src/index.ts"
   },
   "languages": [
     {

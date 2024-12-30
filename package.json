@@ -12,7 +12,9 @@
   "scripts": {
     "dev": "concurrently --names=\"server,react\" \"npm run dev-server\" \"npm run dev-react\" ",
     "dev-server": "cd apps/server && npm run dev",
-    "dev-react": "cd apps/react && npm run dev"
+    "dev-react": "cd apps/react && npm run dev",
+    "build": "cd apps/react && npm run build",
+    "start": "cd apps/server && npm run start "
   },
   "dependencies": {
     "@types/node": "^22.10.1",

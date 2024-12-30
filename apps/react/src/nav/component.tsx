@@ -62,7 +62,7 @@ export function NavComponentInternals(p: { children: any }) {
             {pageDef.map((p, k) => {
               return (
                 <ListItem key={k}>
-                  <ListItemButton component={Link} to={`/${p.path}`}>
+                  <ListItemButton component={Link} to={`/app/${p.path}`}>
                     {p.display}
                   </ListItemButton>
                 </ListItem>

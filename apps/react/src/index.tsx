@@ -1,7 +1,13 @@
 import ReactDOM from "react-dom/client";
-import React from "react";
+import React, { useEffect } from "react";
 import { StrictMode } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  RedirectFunction,
+  Navigate,
+} from "react-router-dom";
 import "./base.css";
 import { External_NavBar } from "./nav";
 import { AboutPage } from "./pages/about";
@@ -25,8 +31,18 @@ function AppRouter() {
   return (
     <Routes>
       {pageDef.map((p, k) => (
-        <Route path={`${p.path}`} element={p.component} key={k} />
+        <Route path={`/app/${p.path}`} element={p.component} key={k} />
       ))}
+      <Route path="/app" element={<Navigate to="/app/about" />} />
+      <Route path="/" element={<Navigate to="/app/about" />} />
+      <Route path="" element={<Navigate to="/app/about" />} />
     </Routes>
   );
+}
+
+function RedirectToAbout() {
+  useEffect(() => {
+    Navigate;
+  }, []);
+  return <></>;
 }
