@@ -56,7 +56,7 @@ fastify.setNotFoundHandler((request, reply) => {
   let urlRoot = request.url.split("/")[1];
   console.log({ urlRoot });
   if (urlRoot === "") {
-    reply.send();
+    reply.redirect("/app");
     return;
   }
   if (request.method === "GET" && ["app"].includes(urlRoot)) {
