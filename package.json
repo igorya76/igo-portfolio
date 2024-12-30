@@ -9,11 +9,16 @@
     "apps/*",
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "concurrently --names=\"server,react\" \"npm run dev-server\" \"npm run dev-react\" ",
+    "dev-server": "cd apps/server && npm run dev",
+    "dev-react": "cd apps/react && npm run dev"
+  },
   "dependencies": {
     "@types/node": "^22.10.1",
     "fastify": "^5.1.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "concurrently": "^9.1.0"
   },
   "packageManager": "npm@8.1.0"
 }

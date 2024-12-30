@@ -1,12 +1,14 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "url";
+import { cwd } from "process";
 const selfDestroying = process.env.SW_DESTROY === "true";
 
 let s: string[] = [];
 // https://vitejs.dev/config/
 export default (props: any) => {
-  const env: any = loadEnv(props.mode, process.cwd(), "");
+  console.log("cwc", cwd());
+  const env: any = loadEnv(props.mode, "../", "VITE_ ");
   let config = defineConfig({
     base: "./src/",
     plugins: [react()],
@@ -30,14 +32,14 @@ export default (props: any) => {
     preview: {},
     appType: "spa",
     server: {
-      port: env.VITE_LOCALHOST_APP,
+      port: 3001,
       open: false,
       hmr: {
-        clientPort: env.VITE_LOCALHOST_APP,
+        clientPort: 3001,
       },
       proxy: {
         "/api": {
-          target: `http://localhost:${env.VITE_LOCALHOST_SERVER}`,
+          target: `http://localhost:${3000}`,
         },
       },
     },

@@ -1,0 +1,125 @@
+{
+  // Place your cfevans-monorepo workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "basicReactComponent": {
+    "prefix": "basicReactComponent",
+    "scope": "javascript,typescript, javascriptreact, typescriptreact",
+    "body": [
+      "import React, { useState, useEffect } from \"react\";",
+      "",
+      "export default function Jobs() {",
+      "  return (",
+      "    <div>",
+      "      ",
+      "    </div>",
+      "  );",
+      "}",
+      "",
+      ""
+    ],
+    "description": "basicReactComponent"
+  },
+  "contextBoilerPlate": {
+    "prefix": "contextBoilerPlate",
+    "body": [
+      "import React, { useContext, createContext, useState, useEffect } from \"react\";",
+      "",
+      "type Tprops = {",
+      "  //Add Props for Context",
+      "};",
+      "",
+      "const InternalContext = createContext<",
+      "  ReturnType<typeof internalHook> | undefined",
+      ">(undefined);",
+      "",
+      "export function Internal_$1(p: Tprops & { children: any }) {",
+      "  const hook = internalHook(p);",
+      "",
+      "  return (",
+      "    <InternalContext.Provider value={hook}>",
+      "      {p.children}",
+      "    </InternalContext.Provider>",
+      "  );",
+      "}",
+      "/**",
+      " * hook to access and manipulate context",
+      " * @returns",
+      " */",
+      "export function use$1Hook() {",
+      "  return useContext(InternalContext);",
+      "}",
+      "",
+      "function internalHook(p: Tprops) {",
+      "  return {};",
+      "}",
+      "",
+      "export function External_$1() {",
+      "  return (",
+      "    <Internal_$1>",
+      "      <h1>Your Logic Here</h1>",
+      "    </Internal_$1>",
+      "  );",
+      "}",
+      ""
+    ],
+    "description": "contextBoilerPlate"
+  },
+  "navRootDef": {
+    "prefix": "navRootDef",
+    "body": [
+      "import React from \"react\";",
+      "",
+      "import { TnavFeatureDef } from \"@cfevans/navbar\";",
+      "import { GroupAddSharp } from \"@mui/icons-material\";",
+      "import { TfeatureKeys } from \"@template/types\";",
+      "",
+      "export const navDefinition: TnavFeatureDef<TfeatureKeys> = {",
+      "  group: \"inputs\",",
+      "  feature: \"ad_users\",",
+      "  display: \"\",",
+      "  icon: () => <GroupAddSharp />,",
+      "  type: \"advPath\",",
+      "  path: \"\",",
+      "};",
+      "",
+      "export default function Inputs() {",
+      "  return <div></div>;",
+      "}",
+      ""
+    ],
+    "description": "navRootDef"
+  },
+  "reactRoute": {
+    "prefix": "reactRoute",
+    "body": [
+      "import { createFileRoute } from \"@tanstack/react-router\";",
+      "import { useState, useMemo } from \"react\";",
+      "",
+      "//@ts-ignore",
+      "export const Route = createFileRoute(",
+      "  \"/\"",
+      ")({",
+      "  component: Func,",
+      "});",
+      "",
+      "function Func() {",
+      "  return <div>header</div>;",
+      "}",
+      ""
+    ],
+    "description": "reactRoute"
+  }
+}

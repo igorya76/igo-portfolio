@@ -3,7 +3,9 @@ import path from "path";
 import dotenv from "dotenv";
 //mod api server
 
-dotenv.config();
+dotenv.config({
+  path: "../../.env",
+});
 const fastify = Fastify({
   connectionTimeout: 1000 * 60,
   logger: {
@@ -50,12 +52,14 @@ fastify.setNotFoundHandler((request, reply) => {
   // directoryProcessRecursive("./build-react", async (file) => {
   // });
   // Only redirect for GET requests and when no file extension is found
-  console.log(request.url);
+  // console.log(request.url);
   let urlRoot = request.url.split("/")[1];
-  if (
-    request.method === "GET" &&
-    ["app", "tablet", "phone", "public"].includes(urlRoot)
-  ) {
+  console.log({ urlRoot });
+  if (urlRoot === "") {
+    reply.send();
+    return;
+  }
+  if (request.method === "GET" && ["app"].includes(urlRoot)) {
     reply.sendFile(
       "index.html",
       path.join(__dirname, "..", "build-react", "app")
