@@ -1,6 +1,6 @@
 import React from "react";
 
-type tPageDef = {
+export type tPageDef = {
   display: string;
   path: string;
   component: React.ReactNode;

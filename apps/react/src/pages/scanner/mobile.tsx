@@ -31,7 +31,7 @@ export function MobileScanner(p: { code: string }) {
         onScan={(s) => scannedData.set(s)}
         qrProps={{}}
       />
-      <Drawer open={Boolean(scannedData) || true} anchor="bottom">
+      <Drawer open={Boolean(scannedData)} anchor="bottom">
         <Box sx={{ height: "60vh" }}>
           <CardHeader
             subheader={"Scanned (encoded) Data"}
