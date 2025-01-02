@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { CameraQrScanner } from "./component";
-import { useValue } from "../../hooks";
+import { useValue } from "../../../hooks";
 import {
   Box,
   Button,
@@ -31,7 +31,7 @@ export function MobileScanner(p: { code: string }) {
         onScan={(s) => scannedData.set(s)}
         qrProps={{}}
       />
-      <Drawer open={Boolean(scannedData)} anchor="bottom">
+      <Drawer open={Boolean(scannedData.value)} anchor="bottom">
         <Box sx={{ height: "60vh" }}>
           <CardHeader
             subheader={"Scanned (encoded) Data"}

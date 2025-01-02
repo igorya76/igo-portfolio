@@ -15,8 +15,11 @@ import {
 import { Internal_Calculator, useCalculatorHook } from "./context";
 import { NewEntryCard } from "./newEntry";
 import { Table } from "./table";
-import { FlexBoxAutoHeight } from "../../components/max-flex";
+import { FlexBoxAutoHeight } from "../../../components/max-flex";
+import { PlaygroundHeader } from "../header";
+import { playGroundDef } from "../def";
 export function BillOfMaterials() {
+  const def = playGroundDef["bom"];
   return (
     <Internal_Calculator>
       <Container sx={{ height: "100%" }}>
@@ -26,16 +29,7 @@ export function BillOfMaterials() {
           }}
         >
           <FlexBoxAutoHeight
-            header={
-              <Box sx={{ padding: "5px" }}>
-                <Typography variant="h6">Bill of Materials </Typography>
-                <Typography variant="body2">
-                  {" "}
-                  Calculator assists in generating a material and cost list for
-                  a construction project.
-                </Typography>
-              </Box>
-            }
+            header={<PlaygroundHeader {...def} />}
             body={
               <Box
                 sx={{

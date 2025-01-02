@@ -12,14 +12,15 @@ import {
   List,
   ListItemButton,
   IconButton,
+  Divider,
 } from "@mui/material";
 import React from "react";
 import { FlexBoxAutoHeight } from "../components/max-flex";
 import { useBoolean } from "../hooks";
 import { Menu as MenuIcon, MenuOpen } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { pageDef } from "../pages/def";
-import { Logo } from "./logo.tsx";
+import { playGroundDef } from "../pages/playground/def";
+import { Logo } from "./logo";
 const drawerWidth = 240;
 
 export function NavComponentInternals(p: { children: any }) {
@@ -42,12 +43,16 @@ export function NavComponentInternals(p: { children: any }) {
                 <IconButton onClick={showMenu.toggle}>
                   {showMenu.value ? <MenuOpen /> : <MenuIcon />}
                 </IconButton>
-                <Logo />
+                <Box component={Link} to="/app/about">
+                  <Logo />
+                </Box>
               </Toolbar>
             </AppBar>
           </>
         }
-        body={<Box sx={{ height: "100%" }}>{p.children}</Box>}
+        body={
+          <Box sx={{ height: "100%", paddingTop: "20px" }}>{p.children}</Box>
+        }
       />
       <Drawer
         hidden={showMenu.value === false}
@@ -63,16 +68,21 @@ export function NavComponentInternals(p: { children: any }) {
       >
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
-          <List>
-            {pageDef.map((p, k) => {
+          <List dense>
+            <ListItem>
+              <Typography variant="caption">Playground Tools</Typography>
+            </ListItem>
+            <Divider />
+            {Object.keys(playGroundDef).map((k) => {
+              let p = playGroundDef[k];
               return (
                 <ListItem key={k}>
                   <ListItemButton
                     onClick={showMenu.toggle}
                     component={Link}
-                    to={`/app/${p.path}`}
+                    to={`/app/playground/${p.path}`}
                   >
-                    {p.display}
+                    {p.navDisplay}
                   </ListItemButton>
                 </ListItem>
               );

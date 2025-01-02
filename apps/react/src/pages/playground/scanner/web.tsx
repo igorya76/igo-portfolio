@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CameraQrScanner } from "./component";
-import { useBoolean, useValue } from "../../hooks";
+import { useBoolean, useValue } from "../../../hooks";
 import { Box, Typography } from "@mui/material";
 import QRcode from "react-qr-code";
 import Barcode from "react-barcode";

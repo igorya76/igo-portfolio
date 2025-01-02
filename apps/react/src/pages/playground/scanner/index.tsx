@@ -1,9 +1,9 @@
 import { Container, Typography } from "@mui/material";
 import React, { useMemo } from "react";
-import { FlexBoxAutoHeight } from "../../components/max-flex";
+import { FlexBoxAutoHeight } from "../../../components/max-flex";
 import { MobileScanner } from "./mobile";
 import { WebScanner } from "./web";
-import { useIsWindowMaxWidth } from "../../hooks/muiScreenWidth";
+import { useIsWindowMaxWidth } from "../../../hooks/muiScreenWidth";
 import { v4 as uuid } from "uuid";
 import { useLocation, useNavigate } from "react-router-dom";
 export function BarcodeScannerEntry() {

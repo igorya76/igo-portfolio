@@ -20,7 +20,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
-import { useIsWindowMaxWidth } from "../../hooks/muiScreenWidth";
+import { useIsWindowMaxWidth } from "../../../hooks/muiScreenWidth";
 export function Table() {
   const isMobile = useIsWindowMaxWidth(900);
   return useMemo(() => {

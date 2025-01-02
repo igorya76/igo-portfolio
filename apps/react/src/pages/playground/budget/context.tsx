@@ -35,7 +35,7 @@ import { DIVISIONS } from "./data/divsions";
 import { LINEITEMS } from "./data/line_items";
 import { v4 } from "uuid";
 import { filter, sumBy } from "lodash-es";
-import { useBoolean, useRecord } from "../../hooks";
+import { useBoolean, useRecord } from "../../../hooks";
 function internalHook(p: Tprops) {
   const filters = useRecord<{
     division: string | "all";

@@ -12,7 +12,7 @@ import "./base.css";
 import { External_NavBar } from "./nav";
 import { AboutPage } from "./pages/about/index";
 import { Box } from "@mui/material";
-import { pageDef } from "./pages/def";
+import { PlaygroundRoutes } from "./pages/playground";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -30,19 +30,11 @@ root.render(
 function AppRouter() {
   return (
     <Routes>
-      {pageDef.map((p, k) => (
-        <Route path={`/app/${p.path}`} element={p.component} key={k} />
-      ))}
       <Route path="/app" element={<Navigate to="/app/about" />} />
+      <Route path="/app/about" element={<AboutPage />} />
+      <Route path="/app/playground/*" element={<PlaygroundRoutes />} />
       <Route path="/" element={<Navigate to="/app/about" />} />
       <Route path="" element={<Navigate to="/app/about" />} />
     </Routes>
   );
-}
-
-function RedirectToAbout() {
-  useEffect(() => {
-    Navigate;
-  }, []);
-  return <></>;
 }

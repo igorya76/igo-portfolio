@@ -1,7 +1,7 @@
 import { connect } from "http2";
 import React, { useState, useCallback, useEffect } from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
-import { useBoolean } from "../../hooks";
+import { useBoolean } from "../../../hooks";
 function getUrl() {
   let httpProtocol = window.location.protocol;
   let host = window.location.host;
