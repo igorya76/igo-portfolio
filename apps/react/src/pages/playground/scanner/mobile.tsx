@@ -18,7 +18,10 @@ export function MobileScanner(p: { code: string }) {
   const scannedData = useValue<string | undefined>(undefined);
   const socket = useWebSocketHook({ ...p, mode: "mobile" });
   const data = useMemo(() => {
-    if (!scannedData.value) return undefined;
+    if (!scannedData.value) {
+      socket.sendScan("");
+      return undefined;
+    }
     let d = getContentType(scannedData.value);
     socket.sendScan(d.type);
     return d;
@@ -31,7 +34,7 @@ export function MobileScanner(p: { code: string }) {
         qrProps={{}}
       />
       <Drawer open={Boolean(scannedData.value)} anchor="bottom">
-        <Box sx={{ height: "60vh" }}>
+        <Box sx={{ height: "30vh" }}>
           <CardHeader
             subheader={"Scanned (encoded) Data"}
             action={

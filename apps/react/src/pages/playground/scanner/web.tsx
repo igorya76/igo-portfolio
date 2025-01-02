@@ -58,6 +58,14 @@ export function WebScanner(p: { code: string }) {
               viewBox={`0 0 256 256`}
             />
           </CodeContainer>
+          <CodeContainer name="JSON" active={scannedCode.isValue("text")}>
+            <QRcode
+              size={256}
+              style={{ maxWidth: "250px", width: "250px" }}
+              value={"Text"}
+              viewBox={`0 0 256 256`}
+            />
+          </CodeContainer>
           <CodeContainer
             name="Open Google Maps"
             active={scannedCode.isValue("url")}
@@ -68,9 +76,6 @@ export function WebScanner(p: { code: string }) {
               value={"https://google.com/maps"}
               viewBox={`0 0 256 256`}
             />
-          </CodeContainer>
-          <CodeContainer name="Barcode" active={scannedCode.isValue("string")}>
-            <Barcode value={"9898900"} format="CODE128" />
           </CodeContainer>
         </div>
       )}
