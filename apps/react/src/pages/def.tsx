@@ -5,9 +5,10 @@ type tPageDef = {
   path: string;
   component: React.ReactNode;
 };
-import { AboutPage } from "./about";
+import { AboutPage } from "./about/index";
 import { BillOfMaterials } from "./bf_calculator";
 import { BudgetAnalyzer } from "./budget";
+import { BarcodeScannerEntry } from "./scanner";
 export const pageDef: tPageDef[] = [
   {
     display: "About",
@@ -23,5 +24,10 @@ export const pageDef: tPageDef[] = [
     display: "Job Budget",
     path: "jobbudget",
     component: <BudgetAnalyzer />,
+  },
+  {
+    display: "Qr Code Scanner",
+    path: "qr_scanner",
+    component: <BarcodeScannerEntry />,
   },
 ];

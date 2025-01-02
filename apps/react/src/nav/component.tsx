@@ -16,9 +16,10 @@ import {
 import React from "react";
 import { FlexBoxAutoHeight } from "../components/max-flex";
 import { useBoolean } from "../hooks";
-import { Menu as MenuIcon } from "@mui/icons-material";
+import { Menu as MenuIcon, MenuOpen } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { pageDef } from "../pages/def";
+import { Logo } from "./logo.tsx";
 const drawerWidth = 240;
 
 export function NavComponentInternals(p: { children: any }) {
@@ -32,12 +33,16 @@ export function NavComponentInternals(p: { children: any }) {
             <Toolbar />
             <AppBar
               position="fixed"
-              sx={{ zIndex: (t) => t.zIndex.drawer + 1 }}
+              sx={{
+                zIndex: (t) => t.zIndex.drawer + 1,
+                backgroundColor: "#5e6066",
+              }}
             >
               <Toolbar>
                 <IconButton onClick={showMenu.toggle}>
-                  <MenuIcon />
+                  {showMenu.value ? <MenuOpen /> : <MenuIcon />}
                 </IconButton>
+                <Logo />
               </Toolbar>
             </AppBar>
           </>
@@ -62,7 +67,11 @@ export function NavComponentInternals(p: { children: any }) {
             {pageDef.map((p, k) => {
               return (
                 <ListItem key={k}>
-                  <ListItemButton component={Link} to={`/app/${p.path}`}>
+                  <ListItemButton
+                    onClick={showMenu.toggle}
+                    component={Link}
+                    to={`/app/${p.path}`}
+                  >
                     {p.display}
                   </ListItemButton>
                 </ListItem>

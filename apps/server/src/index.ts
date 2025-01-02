@@ -18,6 +18,13 @@ const fastify = Fastify({
     },
   },
 });
+import WebSocket from "@fastify/websocket";
+fastify.register(WebSocket, {
+  errorHandler: function (err, socket, req, rep) {
+    socket.terminate();
+    console.log({ err });
+  },
+});
 
 import RoutesCore from "./routes";
 await fastify.register(RoutesCore);
@@ -54,7 +61,7 @@ fastify.setNotFoundHandler((request, reply) => {
   // Only redirect for GET requests and when no file extension is found
   // console.log(request.url);
   let urlRoot = request.url.split("/")[1];
-  console.log({ urlRoot });
+  console.log({ urlRoot, u: request.url });
   if (urlRoot === "") {
     reply.redirect("/app");
     return;

@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import "./base.css";
 import { External_NavBar } from "./nav";
-import { AboutPage } from "./pages/about";
+import { AboutPage } from "./pages/about/index";
 import { Box } from "@mui/material";
 import { pageDef } from "./pages/def";
 
