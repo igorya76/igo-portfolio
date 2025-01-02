@@ -3,11 +3,15 @@ import { Box } from "@mui/material";
 import { CardWrapper } from "../card";
 export function ProfessionalExperience() {
   return (
-    <Box sx={{ display: "grid", gap: "5px", gridTemplateColumns: "1fr 1fr" }}>
+    <Box sx={{ display: "grid", gap: "50px", gridTemplateColumns: "1fr" }}>
       <CardWrapper
         title="Material Management Management System"
         subheader="Santee Building Solutions"
         href="/"
+        img={{
+          pos: "left",
+          src: "https://res.cloudinary.com/dwawh39gc/image/upload/v1735831766/2025-01-02_10_29_11-Clipboard_cv6lnd.png",
+        }}
         body={`
       Developed a comprehensive inventory management system for Santee Building Solutions 
       that digitized the entire lumber lifecycle. The application tracks materials from mill 
@@ -20,19 +24,27 @@ export function ProfessionalExperience() {
   `}
       />
       <CardWrapper
+        img={{
+          pos: "right",
+          src: "https://res.cloudinary.com/dwawh39gc/image/upload/v1735831939/2025-01-02_10_31_47-Clipboard_m3i3bu.pngf",
+        }}
         title="Resource Site"
         subheader="CF Evans Construction"
         href="/"
         body={`
-      Developed a modern, collaborative intranet platform enabling Business Unit Leaders to centralize 
-      and manage Standard Operating Procedures, Best Practices, and Standard Forms. This digital workplace solution
-      streamlined document management and improved accessibility for employees across the organization.
-      
-      *Integrations: Microsoft Sharepoint / Procore*\n
-      *Technologies used: Express, MongoDb, ReduxToolKit, React, Reactrouter, MUI, PWA*
-  `}
+          Developed a modern, collaborative intranet platform enabling Business Unit Leaders to centralize 
+          and manage Standard Operating Procedures, Best Practices, and Standard Forms. This digital workplace solution
+          streamlined document management and improved accessibility for employees across the organization.
+          
+          *Integrations: Microsoft Sharepoint / Procore*\n
+          *Technologies used: Express, MongoDb, ReduxToolKit, React, Reactrouter, MUI, PWA*
+          `}
       />
       <CardWrapper
+        img={{
+          pos: "left",
+          src: "https://res.cloudinary.com/dwawh39gc/image/upload/v1735830368/2025-01-02_10_04_54-Clipboard_sjx8ki.png",
+        }}
         title="Electronic Billing & Compliance"
         subheader="CF Evans Construction"
         href="/"
@@ -46,6 +58,10 @@ export function ProfessionalExperience() {
   `}
       />
       <CardWrapper
+        img={{
+          pos: "right",
+          src: "https://res.cloudinary.com/dwawh39gc/image/upload/v1735831018/2025-01-02_10_16_42-Clipboard_xigpzg.png",
+        }}
         title="Project Close-out Tool"
         subheader="CF Evans Construction"
         href="/"
@@ -58,6 +74,10 @@ export function ProfessionalExperience() {
   `}
       />
       <CardWrapper
+        img={{
+          pos: "left",
+          src: "https://res.cloudinary.com/dwawh39gc/image/upload/v1735831172/2025-01-02_10_18_53-Clipboard_srwxpu.png",
+        }}
         title="Project Update Dashboard"
         subheader="CF Evans Construction"
         href="/"
@@ -69,6 +89,10 @@ export function ProfessionalExperience() {
   `}
       />
       <CardWrapper
+        img={{
+          pos: "right",
+          src: "https://res.cloudinary.com/dwawh39gc/image/upload/v1735831476/2025-01-02_10_24_17-Clipboard_atcmx5.png",
+        }}
         title="ERP / Data Migrations"
         subheader="CF Evans Construction"
         href="/"
