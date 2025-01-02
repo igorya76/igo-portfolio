@@ -23,7 +23,6 @@ export function MobileScanner(p: { code: string }) {
     socket.sendScan(d.type);
     return d;
   }, [scannedData.value]);
-  console.log({ data });
   return (
     <Box sx={{ height: "100%" }}>
       <CameraQrScanner

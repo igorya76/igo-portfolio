@@ -36,7 +36,7 @@ export function WebScanner(p: { code: string }) {
             <QRcode
               size={256}
               style={{ maxWidth: "250px", width: "250px" }}
-              value={`https://portfolio.igo.codes/app/qr_scanner?code=${p.code}`}
+              value={`https://portfolio.igo.codes/app/playground/qr_scanner?code=${p.code}`}
               viewBox={`0 0 256 256`}
             />
           </CodeContainer>
