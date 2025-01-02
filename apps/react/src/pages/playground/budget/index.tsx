@@ -16,8 +16,19 @@ export function BudgetAnalyzer() {
     <Container maxWidth="xl" sx={{ height: "100%" }}>
       <Internal_Budget>
         <FlexBoxAutoHeight
-          header={<PlaygroundHeader {...def} />}
+          header={
+            <>
+              <PlaygroundHeader {...def} />
+              <FilterBar />
+            </>
+          }
           body={<TableBody />}
+          footer={
+            <Typography variant="subtitle2" color="error">
+              NOTE: MUI Premium is used, as I have extensive use of this library
+              in a professional environment.
+            </Typography>
+          }
         />
       </Internal_Budget>
     </Container>

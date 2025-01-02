@@ -5,7 +5,7 @@ import { useBoolean } from "../../../hooks";
 function getUrl() {
   let httpProtocol = window.location.protocol;
   let host = window.location.host;
-  let socketProtocol = httpProtocol === "http:" ? "ws:" : "wss";
+  let socketProtocol = httpProtocol === "http:" ? "ws:" : "wss:";
   return `${socketProtocol}//${host}/api/barcode/ws`;
 }
 type tMessage =
