@@ -26,7 +26,7 @@ export default fp(async function (fastify: FastifyInstance) {
         const client_id = uuid();
         //@ts-ignore
         const code = req.query?.code;
-
+        console.log({ client_id, code });
         if (!code) {
           console.log("close");
           socket.close();
