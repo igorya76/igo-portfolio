@@ -6,6 +6,7 @@ import QRcode from "react-qr-code";
 import Barcode from "react-barcode";
 import { v4 as uuid } from "uuid";
 import { useWebSocketHook } from "./useWsHook";
+import { MarkdownViewer } from "../../../markdown";
 export function WebScanner(p: { code: string }) {
   const scannedCode = useValue("");
 
@@ -32,14 +33,23 @@ export function WebScanner(p: { code: string }) {
     >
       {hasMobileClient == false ? (
         <>
-          <CodeContainer name="Scan QR Code with your Phone" active={false}>
-            <QRcode
-              size={256}
-              style={{ maxWidth: "250px", width: "250px" }}
-              value={`https://portfolio.igo.codes/app/playground/qr_scanner?code=${p.code}`}
-              viewBox={`0 0 256 256`}
-            />
-          </CodeContainer>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "start",
+              justifyContent: "space-between",
+            }}
+          >
+            <HowToUse />
+            <CodeContainer name="" active={false}>
+              <QRcode
+                size={256}
+                style={{ maxWidth: "250px", width: "250px" }}
+                value={`https://portfolio.igo.codes/app/playground/qr_scanner?code=${p.code}`}
+                viewBox={`0 0 256 256`}
+              />
+            </CodeContainer>
+          </div>
         </>
       ) : (
         <div
@@ -106,37 +116,25 @@ function getBrowserInfo() {
   let d = {
     userAgent: navigator.userAgent,
     platform: navigator.platform,
-    // vendor: navigator.vendor,
-    // language: navigator.language,
-    // languages: navigator.languages,
-    // cookieEnabled: navigator.cookieEnabled,
-    // onLine: navigator.onLine,
-    // doNotTrack: navigator.doNotTrack,
-    // hardwareConcurrency: navigator.hardwareConcurrency,
-    // maxTouchPoints: navigator.maxTouchPoints,
-
-    // Screen properties
-    // screenResolution: {
-    //   width: window.screen.width,
-    //   height: window.screen.height,
-    //   availWidth: window.screen.availWidth,
-    //   availHeight: window.screen.availHeight,
-    //   colorDepth: window.screen.colorDepth,
-    //   pixelDepth: window.screen.pixelDepth,
-    //   orientation: window.screen.orientation.type,
-    // },
-
-    // // Window properties
-    // windowSize: {
-    //   innerWidth: window.innerWidth,
-    //   innerHeight: window.innerHeight,
-    //   outerWidth: window.outerWidth,
-    //   outerHeight: window.outerHeight,
-    // },
-
-    // Device pixel ratio
-    // devicePixelRatio: window.devicePixelRatio,
   };
   console.log({ d });
   return d;
+}
+
+function HowToUse() {
+  return (
+    <Box>
+      <MarkdownViewer
+        markdown={`
+        ## How to Use
+        
+        - Scan code with your phone.
+        - Browser window will show some QR Codes.
+        - When Scanning:
+            - Mobile View will show contents and prompt applicable redirects.
+            - Browser View the active QR Code will be highlighted 
+        `}
+      />
+    </Box>
+  );
 }

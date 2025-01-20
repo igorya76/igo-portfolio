@@ -69,6 +69,34 @@ export function NavComponentInternals(p: { children: any }) {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List dense>
+            <ListItem sx={{ paddingTop: "10px" }}>
+              ,
+              <ListItemButton
+                onClick={showMenu.toggle}
+                component={Link}
+                to={`/app/about/me`}
+              >
+                Me
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton
+                onClick={showMenu.toggle}
+                component={Link}
+                to={`/app/about/experience`}
+              >
+                Experience
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton
+                onClick={showMenu.toggle}
+                component={Link}
+                to={`/app/about/technologies`}
+              >
+                Technologies
+              </ListItemButton>
+            </ListItem>
             <ListItem>
               <Typography variant="caption">Playground Tools</Typography>
             </ListItem>

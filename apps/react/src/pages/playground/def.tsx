@@ -11,7 +11,7 @@ import { BudgetAnalyzer } from "./budget";
 import { BarcodeScannerEntry } from "./scanner";
 import aboutBudget from "./budget/about";
 import aboutScanner from "./scanner/about";
-function defineDef(p: TpgDef) {
+function defineDef(p: TpgDef): TpgDef {
   return p;
 }
 export const playGroundDef = {
