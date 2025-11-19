@@ -43,9 +43,6 @@ export function NavComponentInternals(p: { children: any }) {
                 <IconButton onClick={showMenu.toggle}>
                   {showMenu.value ? <MenuOpen /> : <MenuIcon />}
                 </IconButton>
-                <Box component={Link} to="/app/about">
-                  <Logo />
-                </Box>
               </Toolbar>
             </AppBar>
           </>
@@ -69,8 +66,8 @@ export function NavComponentInternals(p: { children: any }) {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List dense>
-            <ListItem sx={{ paddingTop: "10px" }}>
-              ,
+            {/* <ListItem sx={{ paddingTop: "10px" }}>
+              
               <ListItemButton
                 onClick={showMenu.toggle}
                 component={Link}
@@ -100,7 +97,7 @@ export function NavComponentInternals(p: { children: any }) {
             <ListItem>
               <Typography variant="caption">Playground Tools</Typography>
             </ListItem>
-            <Divider />
+            <Divider /> */}
             {Object.keys(playGroundDef).map((k) => {
               let p = playGroundDef[k];
               return (
