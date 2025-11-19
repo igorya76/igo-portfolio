@@ -83,7 +83,7 @@ function ConfigureApp() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "80vh",
+        height: "60vh",
       }}
     >
       {/* <h1 style={{ fontSize: "100px" }}>
