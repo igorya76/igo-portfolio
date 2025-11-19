@@ -120,7 +120,7 @@ function ConfigureApp() {
                     justifyContent: "center",
                     alignItems: "center",
                     width: "100%",
-                    height: "150px",
+                    height: "100px",
                     backgroundColor: context.backgroundColor,
                   }}
                 >
