@@ -92,10 +92,6 @@ function internalHook(p: Tprops) {
       let int = getRandomInt(0, availableWords.length - 1);
       setActive(words[int]);
       setAvailableWords(availableWords.filter((a, index) => index != int));
-      const msg = new SpeechSynthesisUtterance(`...   ${words[int]}`);
-      msg.rate = 0.5;
-      msg.pitch = 0.8;
-      window.speechSynthesis.speak(msg);
     },
     reset: () => {
       setActive(undefined);
