@@ -90,7 +90,7 @@ function ConfigureApp() {
         {textMode(context.mode, context.active)}
       </h1> */}
       <IconButton
-        sx={{ height: "100px" }}
+        sx={{ height: "50px" }}
         onClick={() => {
           const msg = new SpeechSynthesisUtterance(context.active);
           window.speechSynthesis.speak(msg);
