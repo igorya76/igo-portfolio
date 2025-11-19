@@ -90,7 +90,7 @@ function internalHook(p: Tprops) {
   return {
     setNextWord: () => {
       let int = getRandomInt(0, availableWords.length - 1);
-      setActive(words[int]);
+      setActive(availableWords[int]);
       setAvailableWords(availableWords.filter((a, index) => index != int));
     },
     reset: () => {
@@ -113,8 +113,9 @@ function internalHook(p: Tprops) {
     answer(option: string) {
       if (option === active) {
         let int = getRandomInt(0, availableWords.length - 1);
-        setActive(words[int]);
+        setActive(availableWords[int]);
         setAvailableWords(availableWords.filter((a, index) => index != int));
+        console.log({ availableWords });
       } else {
         const msg = new SpeechSynthesisUtterance("Woops");
         window.speechSynthesis.speak(msg);
